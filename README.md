@@ -21,6 +21,11 @@ python3 create_ontology.py
 
 Defines the ontology, creates a few entities and saves it in `onto.owl`
 
+#### Running the API server:
+```
+python3 app.py
+```
+
 #### Inspecting an entity:
 We can inspect an entity by sending a GET request with the following format:
 ```
