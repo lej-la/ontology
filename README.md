@@ -1,11 +1,11 @@
-###Assignment: Simple Ontology
+### Assignment: Simple Ontology
 In Python (or Java), define a simple ontology/taxonomy (up to 5 classes, up to 10 individuals) about companies. 
 Provide REST endpoints
 - to add a new individual;
 - to remove an existing individual from the ontology;
 - to download modified ontology.
 
-####Ontology design:
+#### Ontology design:
 The proposed ontology contains three classes:  
 - **Company, Industry and Person**
 
@@ -14,14 +14,14 @@ The following properties are allowed:
 - **has_founder**_(Company, Person)_  
 - **is_founder_of**_(Person, Company)_
 
-####Init ontology:
+#### Init ontology:
 ```
 python3 create_ontology.py
 ```
 
 Defines the ontology, creates a few entities and saves it in `onto.owl`
 
-####Inspecting an entity:
+#### Inspecting an entity:
 We can inspect an entity by sending a GET request with the following format:
 ```
 curl --request GET --url http://127.0.0.1:5000/<class>/<name>
@@ -39,7 +39,7 @@ Simple search works, too:
 curl --request GET --url http://127.0.0.1:5000/company/Apple
 ```
 
-####Adding an entity:
+#### Adding an entity:
 We can add a new entity by sending a POST request. 
 ```
 curl --request POST --url http://127.0.0.1:5000/person/Albert_Einstein
@@ -51,12 +51,12 @@ curl --request POST --url http://127.0.0.1:5000/person/Henry?founder_of=Henry_s_
 curl --request POST --url http://127.0.0.1:5000/company/IBM?industry=Computer_Hardware
 ```
 
-####Deleting an entity
+#### Deleting an entity
 ```
 curl --request DELETE --url http://127.0.0.1:5000/person/Albert_Einstein
 ```
 
-####Download the modified ontology in ntriples format:
+#### Download the modified ontology in ntriples format:
 ```
 curl --request GET --url http://127.0.0.1:5000/onto > modified_onto.owl
 ```
